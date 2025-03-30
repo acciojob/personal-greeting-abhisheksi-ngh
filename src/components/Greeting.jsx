@@ -1,18 +1,30 @@
-import {useState} from "react";
+import { useState } from "react";
 import React from "react";
 
-const Greeting = () => {
-    const [name, setName]= useState("");
+function Greeting() {
+  const [name, setName] = useState("");
 
-    return (
+  const handleChange = (e) => {
+    const newValue = e.target.value;  
 
-        <div>
-            <h1>Enter your name:</h1>
-            <input type="text" 
-            value={name} onChange={(e) => setName(e.target.value)} />
-             <h2>{name ? `Hello, ${name}!` : ""}</h2>
+    if (/^[A-Za-b]*$/.test(newValue)) {  
+      setName(newValue);  
+    } else {
+      setName("");  
+    }
+  };
 
-        </div>
-    )
+  return (
+    <div>
+      <h1>Enter your name:</h1>
+      <input
+        type="text"
+        value={name}
+        onChange={handleChange} 
+      />
+      <h2>{name ? `Hello, ${name}!` : ""}</h2>
+    </div>
+  );
 }
+
 export default Greeting;
