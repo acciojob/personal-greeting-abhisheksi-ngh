@@ -13,7 +13,7 @@ function Greeting() {
                 onChange={(e) => setName(e.target.value)}
                
             />
-            <h2>{name ? `Hello, ${name}!` : ""}</h2>
+            <h2>{name ? `Hello ${name}!` : ""}</h2>
         </div>
     );
 };
